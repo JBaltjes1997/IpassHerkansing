@@ -8,6 +8,5 @@ public class Ipass2HerkansingApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(Ipass2HerkansingApplication.class, args);
-        System.out.println("Hello World");
     }
 }
