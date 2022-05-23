@@ -1,6 +1,6 @@
 package com.example.demo.domain;
 
-public class Hulpvraag {
+public class Request {
     String status;
     String category;
 }
