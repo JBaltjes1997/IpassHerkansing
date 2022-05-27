@@ -1,10 +1,10 @@
 package com.example.demo.domain;
 
-public class Supplier extends Persoon {
+public class Supplier extends Person {
     String specialisme;
 
-    public Supplier(String voornaam, String achternaam, String postcode, int tel_nummer, String wachtwoord, String specialisme) {
-        super(voornaam, achternaam, postcode, tel_nummer, wachtwoord);
+    public Supplier(String firstName, String lastName, String zipcode, int phonenumber, String password, String specialisme) {
+        super(firstName, lastName, zipcode, phonenumber, password);
         this.specialisme = specialisme;
     }
 

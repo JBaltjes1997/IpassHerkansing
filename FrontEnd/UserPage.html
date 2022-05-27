@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+    <script type="module" src="JavaScript/UserPage.js"></script>
+    <link rel="stylesheet" href="CSS/UserPage.css">
+</head>
+
+<body>
+<h1>Jouw Pagina</h1>
+<form>
+    <div>
+        <label>
+        Creeër nieuwe hulpvraag
+        </label>
+    </div>
+    <button onClick="myFunction()">creeër</button>
+</form>
+
+
+<div class="hulpvraagform" id="hulpvraagform">
+    <p>Waar valt het onder: </p>
+    <div>
+        <input type="radio" id="huis" name="specifieke_taak" value="HUIS">
+        <label for="huis"> Huis </label>
+
+        <input type="radio" id="tuin" name="specifieke_taak" value="TUIN">
+        <label for="tuin">Tuin </label>
+
+        <input type="radio" id="keuken" name="specifieke_taak" value="KEUKEN">
+        <label for="keuken">Keuken</label>
+
+        <input type="radio" id="overig" name="specifieke_taak" value="OVERIG">
+        <label for="overig">Overig</label>
+    </div> <br>
+
+    <div>
+        <label>
+            Waar gaat het precies om:
+                <input type="text">
+        </label>
+    </div>
+
+    <button type="submit">Creeër</button>
+    <button type="reset">Cancel</button>
+</div>
+
+</body>
+</html>
