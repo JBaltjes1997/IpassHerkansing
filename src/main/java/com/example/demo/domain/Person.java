@@ -4,14 +4,12 @@ public class Person {
     String firstName;
     String lastName;
     String zipcode;
-    int phonenumber;
     String password;
 
-    public Person(String firstName, String lastName, String zipcode, int phonenumber, String password) {
+    public Person(String firstName, String lastName, String zipcode, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.zipcode = zipcode;
-        this.phonenumber = phonenumber;
         this.password = password;
     }
 
@@ -37,14 +35,6 @@ public class Person {
 
     public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
-    }
-
-    public int getPhonenumber() {
-        return phonenumber;
-    }
-
-    public void setPhonenumber(int phonenumber) {
-        this.phonenumber = phonenumber;
     }
 
     public String getPassword() {
