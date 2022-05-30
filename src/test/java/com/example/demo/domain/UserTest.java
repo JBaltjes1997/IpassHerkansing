@@ -13,7 +13,7 @@ class UserTest {
         assertNotNull(us.getFirstName());
         assertNotNull(us.getLastName());
         assertNotNull(us.getZipcode());
-        assertNotNull(us.getPassword());
+        assertNotNull(us.getPassword()); //
     }
 
 }
