@@ -1,21 +1,64 @@
 package com.example.demo.presentation.DTO;
 
-public class SupplierDTO {
-    public String firstName;
-    public String lastName;
-    public String zipcode;
-    public String password;
-    public String specialisme;
+import com.example.demo.domain.Supplier;
+import com.example.demo.domain.User;
 
-    public SupplierDTO(String firstName, String lastName, String zipcode, String password, String specialisme) {
+import java.util.ArrayList;
+
+public class SupplierDTO {
+    private int id;
+    private String firstName;
+    private String lastName;
+    private String mailadress;
+    private int phoneNumber;
+    private String password;
+    private String adres;
+    private String zipcode;
+    private String city;
+    private String specialty;
+    private ArrayList<User> users;
+
+    public SupplierDTO(int id, String firstName, String lastName, String mailadress, int phoneNumber,
+                       String password, String adres, String zipcode, String city,
+                       String specialty, ArrayList<User> users) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.zipcode = zipcode;
+        this.mailadress = mailadress;
+        this.phoneNumber = phoneNumber;
         this.password = password;
-        this.specialisme = specialisme;
+        this.adres = adres;
+        this.zipcode = zipcode;
+        this.city = city;
+        this.specialty = specialty;
+        this.users = users;
     }
 
     public SupplierDTO() {
+    }
+
+    public static SupplierDTO createNewSupplierDTO(Supplier supplier){
+        return new SupplierDTO(
+                supplier.getId(),
+                supplier.getFirstName(),
+                supplier.getLastName(),
+                supplier.getMailadress(),
+                supplier.getPhoneNumber(),
+                supplier.getPassword(),
+                supplier.getAdres(),
+                supplier.getZipcode(),
+                supplier.getCity(),
+                supplier.getSpecialty(),
+                supplier.getUsers()
+        );
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -50,11 +93,51 @@ public class SupplierDTO {
         this.password = password;
     }
 
-    public String getSpecialisme() {
-        return specialisme;
+    public String getSpecialty() {
+        return specialty;
     }
 
-    public void setSpecialisme(String specialisme) {
-        this.specialisme = specialisme;
+    public void setSpecialty(String specialty) {
+        this.specialty = specialty;
+    }
+
+    public String getMailadress() {
+        return mailadress;
+    }
+
+    public void setMailadress(String mailadress) {
+        this.mailadress = mailadress;
+    }
+
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getAdres() {
+        return adres;
+    }
+
+    public void setAdres(String adres) {
+        this.adres = adres;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public ArrayList<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(ArrayList<User> users) {
+        this.users = users;
     }
 }
