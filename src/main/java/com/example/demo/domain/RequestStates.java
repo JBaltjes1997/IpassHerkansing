@@ -1,9 +1,9 @@
 package com.example.demo.domain;
 
 public enum RequestStates {
-    notCreated,
-    created,
-    accepted,
-    inprogress,
-    done
+    NOT_CREATED,
+    CREATED,
+    ACCEPTED,
+    IN_PROGRESS,
+    DONE
 }

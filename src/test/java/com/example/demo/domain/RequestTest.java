@@ -19,6 +19,6 @@ class RequestTest {
     @DisplayName("A new test should have status 'notCreated' ")
     void testRequestState(){
         Request r = new Request();
-        assertEquals(RequestStates.notCreated, r.getState());
+        assertEquals(RequestStates.NOT_CREATED, r.getState());
     }
 }

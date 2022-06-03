@@ -13,7 +13,7 @@ public class Request {
     public String category;
 
     @Enumerated(EnumType.STRING)
-    private RequestStates state = RequestStates.notCreated;
+    private RequestStates state = RequestStates.NOT_CREATED;
 
     public Request(int id, String description, String category, RequestStates state) {
         this.id = id;
