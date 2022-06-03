@@ -1,19 +1,21 @@
-package com.example.demo.domain;
+package com.example.demo.presentation.DTO;
 
-import javax.persistence.*;
-
-@Entity
-public class Person {
+public class SupplierDTO {
     public String firstName;
     public String lastName;
     public String zipcode;
     public String password;
+    public String specialisme;
 
-    public Person(String firstName, String lastName, String zipcode, String password) {
+    public SupplierDTO(String firstName, String lastName, String zipcode, String password, String specialisme) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.zipcode = zipcode;
         this.password = password;
+        this.specialisme = specialisme;
+    }
+
+    public SupplierDTO() {
     }
 
     public String getFirstName() {
@@ -48,4 +50,11 @@ public class Person {
         this.password = password;
     }
 
+    public String getSpecialisme() {
+        return specialisme;
+    }
+
+    public void setSpecialisme(String specialisme) {
+        this.specialisme = specialisme;
+    }
 }

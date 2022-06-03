@@ -1,8 +1,8 @@
 package com.example.demo.domain;
 
 public class Request {
-    String description;
-    String category;
+    public String description;
+    public String category;
 
     public Request(String description, String category) {
         this.description = description;
