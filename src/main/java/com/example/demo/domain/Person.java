@@ -10,12 +10,12 @@ public class Person {
     public int id;
     public String firstName;
     public String lastName;
-    public String zipcode;
-    public String city;
-    public String adres;
-    public String password;
     public String mailadress;
     public int phoneNumber;
+    public String password;
+    public String adres;
+    public String zipcode;
+    public String city;
 
     public Person(){}
 
