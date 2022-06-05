@@ -15,9 +15,9 @@ public class testController {
 //    String test(){ return "test succeeded";}
 //
 //    @GetMapping("/gallo")
-//    String dit(){
-//        return "getMapping gelukt";
-//    }
+    public String dit(){
+        return "getMapping gelukt";
+    }
 
     @GetMapping("/greeting")
     public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
