@@ -1,10 +1,21 @@
 package com.example.demo.domain;
 
+
+
+import javax.persistence.CascadeType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import java.util.ArrayList;
+import java.util.List;
 
 public class User extends Person{
-    public ArrayList<Supplier> suppliers;
-    public ArrayList<Request> requests;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinColumn
+    public List<Supplier> suppliers = new ArrayList<>();
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinColumn
+    public List<Request> requests = new ArrayList<>();
 
     public User() {
     }
@@ -17,7 +28,7 @@ public class User extends Person{
     }
 
     public ArrayList<Supplier> getSuppliers() {
-        return suppliers;
+        return (ArrayList<Supplier>) suppliers;
     }
 
     public void setSuppliers(ArrayList<Supplier> suppliers) {
@@ -25,7 +36,7 @@ public class User extends Person{
     }
 
     public ArrayList<Request> getRequests() {
-        return requests;
+        return (ArrayList<Request>) requests;
     }
 
     public void setRequests(ArrayList<Request> requests) {

@@ -5,23 +5,33 @@
     <title>Maak een account</title>
     <script type="module" src="JavaScript/createProfile.js"></script>
     <link rel="stylesheet" href="CSS/Login.css">
+
+    <h1> Welkom bij klusmaatjes</h1>
 </head>
 <body>
-<h1> Welkom bij klusmaatjes</h1>
 
-<p> Klik hier om in te loggen</p>
+<form id="inlogForm">
+    <h2> Inloggen</h2>
+    <div>
+        <label for="userName">Gebruikersnaam:</label><br>
+        <input type="text" id="userName" name="username"><br>
+        <label for="password">Wachtwoord:</label><br>
+        <input type="password" id="password" name="password"><br>
+        <div id="inlogFormButtonDiv">
+            <button type="reset">Annuleren</button>
+            <button type="submit">Inloggen</button>
+        </div>
+    </div>
+</form>
 
 <p> Klik <a href="">hier</a> om een profiel aan te maken</p>
 
-<form>
+<form id="createNewProfileForm">
     <div>
         <input type="radio" id="user" name="typeOf" value="USER">
         <label for="user">Gebruiker</label>
         <input type="radio" id="supplier" name="typeOf" value="SUPPLIER">
         <label for="supplier">Aanbieder</label><br>
-    </div>
-
-    <div>
         <label for="fname">Voornaam:</label><br>
         <input type="text" id="fname" name="fname"><br>
         <label for="lname">Achternaam:</label><br>
@@ -41,12 +51,13 @@
         <input type="text" id="city" name="city"><br>
     </div>
 
-    <div id="testMetMax">
+    <div id="specialtyInput">
         <label for="specialty">Specialicteit:</label><br>
         <input type="text" id="specialty" name="specialty"><br>
     </div>
-
 </form>
+
+
 
 </body>
 </html>

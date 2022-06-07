@@ -1,25 +1,5 @@
 
-// function showForm(){
-//     if(document.getElementById("#supplier").checked()) {
-//         document.style.display = "block";
-//     } else {
-//         document.style.display = "none";
-//     }
-// }
-//
-// showForm();
-
-// const dezeForm = document.getElementById("#testMetMax")
-// const dezeRadioButton = document.getElementById("#supplier")
-// dezeRadioButton.addEventListener("click", () => {
-//         if (dezeRadioButton.click()) {
-//             dezeForm.style.display = 'block';
-//         } else {
-//             dezeForm.style.display = 'none';
-//         }
-//     })
-
-const box = document.getElementById('testMetMax');
+const box = document.getElementById('specialtyInput');
 
 function handleRadioClick() {
     if (document.getElementById('supplier').checked) {

@@ -1,3 +1,42 @@
-#testMetMax {
+h1{
+    text-align: center;
+    padding-top: 5%;
+}
+
+body{
+    background-color: lightslategrey;
+}
+
+#inlogForm{
+    width: 20%;
+    background-color: white;
+    border: 5px black solid;
+    margin-top: 10%;
+    margin-left: 39%;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 15px;
+}
+
+#inlogFormButtonDiv{
+    text-align: center;
+    padding: 10px;
+}
+
+p{
+    text-align: center;
+    padding: 5px;
+}
+
+#createNewProfileForm{
+    display: none;
+    width: 20%;
+    border: 1px black solid;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 15px;
+}
+
+#specialtyInput {
     display: none;
 }

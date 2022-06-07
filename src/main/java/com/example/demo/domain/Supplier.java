@@ -1,9 +1,14 @@
 package com.example.demo.domain;
 
+import javax.persistence.CascadeType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import java.util.ArrayList;
 
 public class Supplier extends Person {
     public String specialty;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinColumn
     public ArrayList<User> users;
 
     public Supplier() {
