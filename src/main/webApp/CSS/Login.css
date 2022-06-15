@@ -28,15 +28,3 @@ p{
     padding: 5px;
 }
 
-#createNewProfileForm{
-    display: none;
-    width: 20%;
-    border: 1px black solid;
-    text-align: center;
-    padding-top: 5px;
-    padding-bottom: 15px;
-}
-
-#specialtyInput {
-    display: none;
-}
