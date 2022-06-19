@@ -11,7 +11,3 @@ formButton.addEventListener('click', () => {
     }
 });
 
-function dezeButtonClick(){
-    document.getElementById('hulpvraagform').style.display = 'block';
-}
-
