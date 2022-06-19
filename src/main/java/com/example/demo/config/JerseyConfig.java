@@ -8,8 +8,7 @@ import javax.ws.rs.ApplicationPath;
 @ApplicationPath("restservices")
 public class JerseyConfig extends ResourceConfig {
     public JerseyConfig() {
-
         register(RolesAllowedDynamicFeature.class);
-        packages("com.example.demo.webservices");
+        packages("com.example.demo.config", "com.example.demo.config.presentation");
     }
 }

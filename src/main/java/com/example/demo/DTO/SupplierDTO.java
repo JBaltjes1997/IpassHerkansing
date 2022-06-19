@@ -1,4 +1,4 @@
-package com.example.demo.presentation.DTO;
+package com.example.demo.DTO;
 
 import com.example.demo.domain.Supplier;
 import com.example.demo.domain.User;
