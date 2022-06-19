@@ -2,6 +2,7 @@
     height: auto;
     padding: 5px;
     border: black solid 1px;
+    display: none;
 }
 
 h1 {
