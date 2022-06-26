@@ -5,10 +5,11 @@ import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature;
 
 import javax.ws.rs.ApplicationPath;
 
-@ApplicationPath("restservices")
+@ApplicationPath("/restservices")
 public class JerseyConfig extends ResourceConfig {
     public JerseyConfig() {
         register(RolesAllowedDynamicFeature.class);
-        packages("com.example.demo.config", "com.example.demo.config.presentation");
+        packages("com/example/demo/config", "com/example/demo/presentation");
+        // krijg een servlet exception omdat ik de build application servers heb aangepast
     }
 }
