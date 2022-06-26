@@ -11,8 +11,10 @@ class RequestTest {
     @DisplayName("A new request shouldn't have empty fields")
     void testRequestFields(){
         Request r = new Request();
-        assertNull(r.getCategory());
-        assertNull(r.getDescription());
+        r.setDescription("Grasmaaien");
+        r.setCategory("Tuin");
+        assertNotNull(r.getCategory());
+        assertNotNull(r.getDescription());
     }
 
     @Test
@@ -20,5 +22,13 @@ class RequestTest {
     void testRequestState(){
         Request r = new Request();
         assertEquals(RequestStates.NOT_CREATED, r.getState());
+    }
+
+    @Test
+    @DisplayName("Any request should have an ID")
+    void testRequestHasId(){
+        Request r = new Request();
+        r.setId(5);
+        assertTrue(r.getId() > 0);
     }
 }

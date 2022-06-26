@@ -9,12 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class User extends Person{
-
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinColumn
     public List<Supplier> suppliers = new ArrayList<>();
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinColumn
     public List<Request> requests = new ArrayList<>();
 
     public User() {

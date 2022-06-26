@@ -14,4 +14,15 @@ class SupplierTest {
         sus.setSpecialty("loodgieter");
         assertNotNull(sus.getSpecialty());
     }
+
+    @Test
+    @DisplayName("A supplier has acces to a list of users")
+    void testUserArrayList(){
+        Supplier sus = new Supplier();
+        User us = new User();
+        us.setFirstName("Hendrik");
+        sus.addUser(us);
+        assertEquals(1, (sus.getUsers()).size());
+
+    }
 }

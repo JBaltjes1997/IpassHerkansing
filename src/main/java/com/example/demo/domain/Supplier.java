@@ -7,8 +7,6 @@ import java.util.ArrayList;
 
 public class Supplier extends Person {
     public String specialty;
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinColumn
     public ArrayList<User> users;
 
     public Supplier() {
@@ -33,7 +31,7 @@ public class Supplier extends Person {
         return users;
     }
 
-    public void setUsers(ArrayList<User> users) {
-        this.users = users;
+    public void addUser(User user){
+        users.add(user);
     }
 }
