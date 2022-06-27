@@ -22,7 +22,7 @@ class SupplierTest {
         User us = new User();
         us.setFirstName("Hendrik");
         sus.addUser(us);
-        assertEquals(1, (sus.getUsers()).size());
+        assertEquals( 1,(sus.getUsers().size()));
 
     }
 }

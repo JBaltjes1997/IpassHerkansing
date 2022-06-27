@@ -4,10 +4,11 @@ import javax.persistence.CascadeType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Supplier extends Person {
     public String specialty;
-    public ArrayList<User> users;
+    public List<User> users = new ArrayList<>();
 
     public Supplier() {
     }
@@ -27,7 +28,7 @@ public class Supplier extends Person {
         this.specialty = specialty;
     }
 
-    public ArrayList<User> getUsers() {
+    public List<User> getUsers() {
         return users;
     }
 
