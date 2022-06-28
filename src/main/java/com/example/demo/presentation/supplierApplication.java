@@ -1,7 +1,7 @@
 package com.example.demo.presentation;
 
-import com.example.demo.data.databaseInfo;
-import com.example.demo.data.databaseQuery;
+//import com.example.demo.data.databaseInfo;
+//import com.example.demo.data.databaseQuery;
 
 import javax.json.Json;
 import javax.json.JsonArrayBuilder;

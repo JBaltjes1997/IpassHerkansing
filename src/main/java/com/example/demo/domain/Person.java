@@ -1,12 +1,9 @@
 package com.example.demo.domain;
 
 import javax.persistence.*;
-import java.util.ArrayList;
+import java.io.Serializable;
 
-@Entity
-public class Person {
-    @Id
-    @GeneratedValue
+public class Person implements Serializable {
     public int id;
     public String firstName;
     public String lastName;
@@ -31,6 +28,14 @@ public class Person {
         this.mailadress = mailadress;
         this.phoneNumber = phoneNumber;
     }
+
+    public static void setPerson(Person loadedPerson) {
+    }
+
+    public static Person getPerson() {
+        return null;
+    }
+
 
     public int getId() {
         return id;

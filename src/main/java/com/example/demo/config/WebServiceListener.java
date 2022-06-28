@@ -1,8 +1,13 @@
 package com.example.demo.config;
 
+import com.example.demo.data.PersistenceManager;
+import reactor.core.scheduler.Schedulers;
+import reactor.netty.http.HttpResources;
+
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
+import java.time.Duration;
 
 @WebListener
 public class WebServiceListener implements ServletContextListener {
@@ -10,11 +15,12 @@ public class WebServiceListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce){
         System.out.println("system initializing");
-//        try{
-//            dataOpslagManager.loadedData();
-//        } catch (Exception e){
-//            e.printStackTrace();
-//        }
+         try {
+            PersistenceManager.loadPersonsToAzure();
+        } catch(Exception e) {
+            System.out.println("Error loading data ...." + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     @Override

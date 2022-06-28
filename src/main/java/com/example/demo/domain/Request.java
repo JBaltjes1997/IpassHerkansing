@@ -6,8 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 public class Request {
-    @Id
-    @GeneratedValue
     public int id;
     public String description;
     public String category;
