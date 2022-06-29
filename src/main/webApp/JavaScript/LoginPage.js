@@ -19,6 +19,8 @@
 //
 // loginKnop();
 
+import LoginService from "./LoginService";
+
 function login(event){
     var formData = new FormData(document.querySelector("#inlogForm"));
     var encData = new URLSearchParams(formData.entries());

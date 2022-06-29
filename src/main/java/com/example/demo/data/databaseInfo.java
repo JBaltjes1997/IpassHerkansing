@@ -8,14 +8,14 @@ import java.util.ArrayList;
 
 public class databaseInfo {
 
-    public static Response createNewUserProfile(int id, String voornaam, String achternaam, String wachtwoord )
+    public static Response createNewUserProfile(String voornaam, String achternaam, String wachtwoord )
             throws SQLException, ClassNotFoundException {
 
         Connection connection = databaseQuery.getDBConnection();
         Statement statement = connection.createStatement();
 
         try {
-            statement.execute("INSERT INTO gebruiker(id, voornaam, achternaam, wachtwoord ) values ('"+id+"', '"
+            statement.execute("INSERT INTO gebruiker(id, voornaam, achternaam, wachtwoord ) values (nextval('gebruiker_id_seq'), '"
                     +voornaam+"', '" +achternaam+"', '" +wachtwoord+"')");
             return Response.ok().build();
         } catch (Exception e){
@@ -31,7 +31,7 @@ public class databaseInfo {
         Statement statement = connection.createStatement();
 
         try {
-            statement.execute("INSERT INTO aanbieder(id, voornaam, achternaam, specialisme, wachtwoord ) values ('"+id+"', '"
+            statement.execute("INSERT INTO aanbieder(id, voornaam, achternaam, specialisme, wachtwoord ) values (nextval('aanbieder_id_seq'), '"
                     +voornaam+"', '" +achternaam+"', '" +specialisme +"' '" +wachtwoord+"')");
             return Response.ok().build();
         } catch (Exception e){

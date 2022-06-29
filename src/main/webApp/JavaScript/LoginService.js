@@ -1,4 +1,4 @@
-const BASE = "/restservices/ProgrammersForHire";
+const BASE = "/restservices/";
 
 export default class loginService{
     static loginTest(formData){

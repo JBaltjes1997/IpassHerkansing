@@ -12,7 +12,7 @@
     <div id="createNewProfileFormContent">
         <h1>Creeër nieuw profiel</h1>
         <label>Gebruiker
-            <input type="radio" id="user" name="typeOf" value="USER">
+            <input type="radio" id="user" name="typeOf" value="USER" required>
         </label>
 
         <label>Aanbieder
@@ -45,12 +45,12 @@
     </div>
 
     <div id="specialtyInput">
-        <label>Specialiteit: <input type="text" id="specialty" name="specialty" required><br>
+        <label>Specialiteit: <input type="text" id="specialty" name="specialty"><br>
         </label><br>
     </div>
 
     <button type="reset" id="resetProfileButton">Cancel</button>
-    <button type="submit" id="submitProfileButton">Creeër</button>
+    <input type="submit" value="creeër" id="submitProfileButton">
 </form>
 
 </body>
