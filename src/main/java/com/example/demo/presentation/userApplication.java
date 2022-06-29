@@ -3,6 +3,9 @@ package com.example.demo.presentation;
 //import com.example.demo.data.databaseInfo;
 //import com.example.demo.data.databaseQuery;
 
+import com.example.demo.data.databaseInfo;
+import com.example.demo.data.databaseQuery;
+
 import javax.json.Json;
 import javax.json.JsonArrayBuilder;
 import javax.ws.rs.GET;
@@ -15,32 +18,32 @@ import java.util.ArrayList;
 @Path("/gebruikersApplicatie")
 public class userApplication {
 
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public String getProgrammeurs(){
-        JsonArrayBuilder builder = Json.createArrayBuilder();
-        builder.add("werkt de gebruikerApp?");
-
-        return builder.build().toString();
-    }
-
 //    @GET
 //    @Produces(MediaType.APPLICATION_JSON)
-//    public String allUsers() throws SQLException {
+//    public String getProgrammeurs(){
 //        JsonArrayBuilder builder = Json.createArrayBuilder();
-//        try{
-//            databaseQuery.setDBConnection();
-//            ArrayList<String> users = databaseInfo.getUsers();
-//            for(String user : users){
-//                builder.add(user);
-//            }
-//            databaseQuery.closeDBConnection();
-//            return builder.build().toString();
+//        builder.add("werkt de gebruikerApp?");
 //
-//        }catch(Exception e){
-//            return e.getMessage();
-//        }
+//        return builder.build().toString();
 //    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public String allUsers() throws SQLException {
+        JsonArrayBuilder builder = Json.createArrayBuilder();
+        try{
+            databaseQuery.setDBConnection();
+            ArrayList<String> users = databaseInfo.getUsers();
+            for(String user : users){
+                builder.add(user);
+            }
+            databaseQuery.closeDBConnection();
+            return builder.build().toString();
+
+        }catch(Exception e){
+            return e.getMessage();
+        }
+    }
 //
 //    @POST
 //    @Path("/{id}/{voornaam}/{achternaam}/{wachtwoord}")

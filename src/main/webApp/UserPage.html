@@ -10,18 +10,14 @@
 <body>
 
 <h1>Jouw Pagina</h1>
+
 <form>
-    <div>
-        <label>
-        Creeër nieuwe hulpvraag
-        </label>
-        <input type="button" name="createRequestButton" value="creëer" id="dezeButton">
-    </div>
+    <label> Creeër nieuwe hulpvraag </label>
+    <input type="button" name="createRequestButton" value="creeër" id="dezeButton">
 </form>
 
-<div class="hulpvraagform" id="hulpvraagform">
+<form class="hulpvraagform" id="hulpvraagform">
     <p>Waar valt het onder: </p>
-    <div>
         <input type="radio" id="huis" name="specifieke_taak" value="HUIS">
         <label for="huis"> Huis </label>
 
@@ -33,28 +29,38 @@
 
         <input type="radio" id="overig" name="specifieke_taak" value="OVERIG">
         <label for="overig">Overig</label>
-    </div> <br>
 
-    <div>
-        <label>
-            Waar gaat het precies om:
-                <input type="text">
-        </label>
-    </div>
+    <br>
+        <label> Waar gaat het precies om:
+            <input type="text">
+        </label> <br>
 
     <button type="reset">Cancel</button>
     <button type="submit">Creeër</button>
-</div>
-
-<form id="gebruikersInfo">
-    <div>
-        <p>Foto van de gebruiker</p>
-    </div>
-    <div>
-        <p>Naam: </p>
-    </div>
 </form>
 
+<form id="userInfoForm">
+    <p>Naam: </p>
+    <p>Leeftijd: </p>
+    <p>Woonplaats: </p>
+</form>
+
+<form id="sentRequests">
+    <p>Hier komen al je verzonden requests</p>
+</form>
+
+
+
+<!--<form id="gebruikersInfo">-->
+<!--    <div>-->
+<!--        <p>Foto van de gebruiker</p>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <p>Naam: </p>-->
+<!--    </div>-->
+<!--</form>-->
+
+<!--<form class="verzonden requests"></form>-->
 
 </body>
 </html>
