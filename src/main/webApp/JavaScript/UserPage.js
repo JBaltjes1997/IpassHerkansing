@@ -28,3 +28,16 @@
 // .then(function (data) {
 //     console.log('the data', data)
 // })
+
+function getSuppliers(response){
+    // console.log(response);
+    var select = document.getElementById("zoek-aanbieders");
+    select.innerHTML = "";
+    for(const counter in response){
+        console.log(response[counter]);
+        var optie = document.createElement('option');
+        optie.value = response[counter].naam;
+        optie.innerHTML = response[counter].naam + ', ' + response[counter].expertise;
+        select.appendChild(optie);
+    }
+}

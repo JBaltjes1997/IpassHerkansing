@@ -3,6 +3,9 @@ package com.example.demo.presentation;
 //import com.example.demo.data.databaseInfo;
 //import com.example.demo.data.databaseQuery;
 
+import com.example.demo.data.databaseInfo;
+import com.example.demo.data.databaseQuery;
+
 import javax.json.Json;
 import javax.json.JsonArrayBuilder;
 import javax.json.JsonObjectBuilder;
@@ -16,6 +19,24 @@ import java.util.ArrayList;
 
 @Path("/aanbiedersApplicatie")
 public class supplierApplication {
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public String allSuppliers() throws SQLException {
+        JsonArrayBuilder builder = Json.createArrayBuilder();
+        try{
+            databaseQuery.setDBConnection();
+            ArrayList<String> suppliers = databaseInfo.getSuppliers();
+            for(String supplier : suppliers){
+                builder.add(supplier);
+            }
+            databaseQuery.closeDBConnection();
+            return builder.build().toString();
+
+        }catch(Exception e){
+            return e.getMessage();
+        }
+    }
 
 //    @GET
 //    @Produces(MediaType.APPLICATION_JSON)
@@ -52,12 +73,12 @@ public class supplierApplication {
 //        return users;
 //    }
 
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public String getProgrammeurs(){
-        JsonArrayBuilder builder = Json.createArrayBuilder();
-        builder.add("werkt dit nog?");
-
-        return builder.build().toString();
-    }
+//    @GET
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public String getProgrammeurs(){
+//        JsonArrayBuilder builder = Json.createArrayBuilder();
+//        builder.add("werkt dit nog?");
+//
+//        return builder.build().toString();
+//    }
 }
