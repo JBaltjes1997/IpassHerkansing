@@ -1,16 +1,16 @@
 package com.example.demo.domain;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+//import javax.persistence.EnumType;
+//import javax.persistence.Enumerated;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.Id;
 
 public class Request {
     public int id;
     public String description;
     public String category;
 
-    @Enumerated(EnumType.STRING)
+//    @Enumerated(EnumType.STRING)
     private RequestStates state = RequestStates.NOT_CREATED;
 
     public Request(int id, String description, String category, RequestStates state) {

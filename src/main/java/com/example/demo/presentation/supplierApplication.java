@@ -10,6 +10,7 @@ import javax.json.Json;
 import javax.json.JsonArrayBuilder;
 import javax.json.JsonObjectBuilder;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -37,6 +38,26 @@ public class supplierApplication {
             return e.getMessage();
         }
     }
+
+//    @POST
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public void supplierLogIn(String voornaam, String wachtwoord){
+//        try{
+//            databaseQuery.setDBConnection();
+//
+//            ArrayList<String> users = databaseInfo.getSuppliers();
+//            for(String user : users){
+//                if(user.contains(voornaam) && user.contains(wachtwoord)){
+//
+//                }
+//            }
+//
+//            databaseQuery.closeDBConnection();
+//
+//        } catch (Exception e){
+//            System.out.println(e.getMessage());
+//        }
+//    }
 
 //    @GET
 //    @Produces(MediaType.APPLICATION_JSON)

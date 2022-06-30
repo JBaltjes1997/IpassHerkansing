@@ -1,6 +1,6 @@
 package com.example.demo.domain;
 
-import javax.persistence.*;
+//import javax.persistence.*;
 import java.io.Serializable;
 
 public class Person implements Serializable {

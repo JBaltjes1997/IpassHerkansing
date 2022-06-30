@@ -50,11 +50,28 @@ public class databaseInfo {
 
         while(resultSet.next()){
             gebruikers.add(resultSet.getString(1));
-//            gebruikers.add(resultSet.getString(3));
-//            gebruikers.add(resultSet.getString(11));
         }
         return gebruikers;
     }
+
+//    public static ArrayList<User> getUsers() throws SQLException {
+//        ArrayList<User> gebruikers = new ArrayList<>();
+//
+//        Connection connection = databaseQuery.getDBConnection();
+//        Statement statement = connection.createStatement();
+//
+//        ResultSet resultSet = statement.executeQuery("SELECT * FROM gebruiker");
+//
+//        while(resultSet.next()){
+//            User dezeUser = new User();
+//            dezeUser.setId(resultSet.getInt(1));
+//            dezeUser.setFirstName(resultSet.getString(2));
+//            dezeUser.setLastName(resultSet.getString(3));
+//            dezeUser.setPassword(resultSet.getString(11));
+//            gebruikers.add(dezeUser);
+//        }
+//        return gebruikers;
+//    }
 
     public static ArrayList<String> getSuppliers() throws SQLException {
         ArrayList<String> gebruikers = new ArrayList<>();
@@ -62,12 +79,11 @@ public class databaseInfo {
         Connection connection = databaseQuery.getDBConnection();
         Statement statement = connection.createStatement();
 
-        ResultSet resultSet = statement.executeQuery("SELECT voornaam FROM aanbieder");
+        ResultSet resultSet = statement.executeQuery("SELECT voornaam, achternaam FROM aanbieder");
 
         while(resultSet.next()){
             gebruikers.add(resultSet.getString(1));
-//            gebruikers.add(resultSet.getString(3));
-//            gebruikers.add(resultSet.getString(11));
+            gebruikers.add(resultSet.getString(1));
         }
         return gebruikers;
     }

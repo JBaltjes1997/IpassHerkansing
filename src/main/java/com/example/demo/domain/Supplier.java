@@ -1,8 +1,8 @@
 package com.example.demo.domain;
 
-import javax.persistence.CascadeType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
+//import javax.persistence.CascadeType;
+//import javax.persistence.JoinColumn;
+//import javax.persistence.ManyToMany;
 import java.util.ArrayList;
 import java.util.List;
 

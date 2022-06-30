@@ -5,9 +5,11 @@ package com.example.demo.presentation;
 
 import com.example.demo.data.databaseInfo;
 import com.example.demo.data.databaseQuery;
+import com.example.demo.domain.User;
 
 import javax.json.Json;
 import javax.json.JsonArrayBuilder;
+import javax.json.JsonObjectBuilder;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -43,6 +45,26 @@ public class userApplication {
             return e.getMessage();
         }
     }
+//    @GET
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public String allUsers() throws SQLException {
+//        JsonArrayBuilder builder = Json.createArrayBuilder();
+//        try{
+//            databaseQuery.setDBConnection();
+//            ArrayList<User> users = databaseInfo.getUsers();
+//            for(User user : users){
+////                JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
+////                builder.add((JsonObjectBuilder) user);
+////                builder.add(objectBuilder);
+//                builder.add(user);
+//            }
+//            databaseQuery.closeDBConnection();
+//            return builder.build().toString();
+//
+//        }catch(Exception e){
+//            return e.getMessage();
+//        }
+//    }
 
     @POST
     @Path("/{voornaam}/{achternaam}/{wachtwoord}")
@@ -73,7 +95,7 @@ public class userApplication {
 //
 //            ArrayList<String> users = databaseInfo.getUsers();
 //            for(String user : users){
-//                if(user.contains(voornaam) && user.contains(wachtwoord)){
+//                if(){
 //
 //                }
 //            }
