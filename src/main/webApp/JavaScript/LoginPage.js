@@ -1,4 +1,4 @@
-import LoginService from "./LoginService";
+// import LoginService from "./LoginService";
 
 // const form = document.forms['inlogForm'];
 // const formData = new FormData(form);
@@ -14,8 +14,9 @@ let password = document.querySelector("#password").value;
 function login(event){
     event.preventDefault()
 
-    var selector = document.querySelector("#user").value;
+    let selector = document.querySelector("#user-login").value;
     if (selector === 'USER') {
+        console.log(firstname);
         userLogin();
     } else {
         supplierLogin();
@@ -33,7 +34,7 @@ function userLogin(){
 }
 
 function supplierLogin(){
-    fetch(`/restservices/anbiedersApplicatie/${firstname}/${password}`, {method: "GET"})
+    fetch(`/restservices/aanbiedersApplicatie/${firstname}/${password}`, {method: "GET"})
         .then(response => {
             console.log(response.status)
             if(response.status === 200){
@@ -43,7 +44,10 @@ function supplierLogin(){
 }
 
 function loginKnop(){
-    document.getElementById('#submitButton').addEventListener('click', event => login(event));
+    document.getElementById('submitLogInButton').addEventListener('click', event => login(event));
 }
 
 loginKnop();
+
+const button = document.querySelector("#testButton");
+button.addEventListener('click', () => console.log("Gelukt"));

@@ -11,10 +11,10 @@
 
 <h1>Jouw Pagina</h1>
 
-<form>
+<div>
     <label> Creeër nieuwe hulpvraag </label>
     <input type="button" name="createRequestButton" value="creeër" id="dezeButton">
-</form>
+</div>
 
 <form class="hulpvraagform" id="hulpvraagform">
     <p>Waar valt het onder: </p>
@@ -39,17 +39,22 @@
     <button type="submit">Creeër</button>
 </form>
 
-<form id="userInfoForm">
-    <p>Naam: </p>
-    <p>Leeftijd: </p>
-    <p>Woonplaats: </p>
-</form>
+<!--<div id="userInfoDiv">-->
+<!--    <p>Naam: </p>-->
+<!--    <p>Leeftijd: </p>-->
+<!--    <p>Woonplaats: </p>-->
+<!--</div>-->
 
-<form id="sentRequests">
+<div id="sentRequests">
     <p>Hier komen al je verzonden requests</p>
-</form>
+</div>
 
-<form>
+<div>
+    <button type="submit" id="logOutButton" >Log out</button>
+    <button type="submit" id="deleteButton" value="verwijder profiel">Verwijder Profiel</button>
+</div>
+
+<div>
     <label for="zoek-aanbieders">Dit zijn je opties</label>
     <select name="zoek-aanbieders" id="zoek-aanbieders">
 
@@ -59,15 +64,7 @@
     <!--        <h3 class="buddyExpertise">Expertise: </h3>-->
     <!--    </form>-->
 
-</form>
-
-<form>
-    <button type="submit" id="logOutButton" >Log out</button>
-</form>
-
-<form>
-    <button type="submit" id="deleteButton" value="verwijder profiel">Verwijder Profiel</button>
-</form>
+</div>
 
 
 </body>
