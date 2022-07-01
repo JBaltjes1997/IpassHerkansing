@@ -126,7 +126,6 @@ public class userApplication {
         }
     }
 
-//
     @GET
     @Path("/{voornaam}/{wachtwoord}")
     @Produces(MediaType.APPLICATION_JSON)

@@ -48,6 +48,3 @@ function loginKnop(){
 }
 
 loginKnop();
-
-const button = document.querySelector("#testButton");
-button.addEventListener('click', () => console.log("Gelukt"));
