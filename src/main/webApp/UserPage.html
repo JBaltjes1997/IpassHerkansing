@@ -1,71 +1,71 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>User Profile</title>-->
-<!--    <script type="module" src="JavaScript/UserPage.js"></script>-->
-<!--    <link rel="stylesheet" href="CSS/UserPage.css">-->
-<!--</head>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+    <script type="module" src="JavaScript/UserPage.js"></script>
+    <link rel="stylesheet" href="CSS/UserPage.css">
+</head>
 
-<!--<body>-->
+<body>
 
-<!--<h1>Jouw Pagina</h1>-->
+<h1>Jouw Pagina</h1>
 
-<!--<div>-->
-<!--    <label> Creeër nieuwe hulpvraag </label>-->
-<!--    <input type="button" name="createRequestButton" value="creeër" id="dezeButton">-->
+<div>
+    <label> Creeër nieuwe hulpvraag </label>
+    <input type="button" name="createRequestButton" value="creeër" id="dezeButton">
+</div>
+
+<form class="hulpvraagform" id="hulpvraagform">
+    <p>Waar valt het onder: </p>
+        <input type="radio" id="huis" name="specifieke_taak" value="HUIS">
+        <label for="huis"> Huis </label>
+
+        <input type="radio" id="tuin" name="specifieke_taak" value="TUIN">
+        <label for="tuin">Tuin </label>
+
+        <input type="radio" id="keuken" name="specifieke_taak" value="KEUKEN">
+        <label for="keuken">Keuken</label>
+
+        <input type="radio" id="overig" name="specifieke_taak" value="OVERIG">
+        <label for="overig">Overig</label>
+
+    <br>
+        <label> Waar gaat het precies om:
+            <input type="text">
+        </label> <br>
+
+    <button type="reset">Cancel</button>
+    <button type="submit">Creeër</button>
+</form>
+
+<!--<div id="userInfoDiv">-->
+<!--    <p>Naam: </p>-->
+<!--    <p>Leeftijd: </p>-->
+<!--    <p>Woonplaats: </p>-->
 <!--</div>-->
 
-<!--<form class="hulpvraagform" id="hulpvraagform">-->
-<!--    <p>Waar valt het onder: </p>-->
-<!--        <input type="radio" id="huis" name="specifieke_taak" value="HUIS">-->
-<!--        <label for="huis"> Huis </label>-->
+<div id="sentRequests">
+    <p>Hier komen al je verzonden requests</p>
+</div>
 
-<!--        <input type="radio" id="tuin" name="specifieke_taak" value="TUIN">-->
-<!--        <label for="tuin">Tuin </label>-->
+<div>
+    <button type="submit" id="logOutButton" >Log out</button>
+    <button type="submit" id="deleteButton" value="verwijder profiel">Verwijder Profiel</button>
+</div>
 
-<!--        <input type="radio" id="keuken" name="specifieke_taak" value="KEUKEN">-->
-<!--        <label for="keuken">Keuken</label>-->
+<div>
+    <label for="zoek-aanbieders">Dit zijn je opties</label>
+    <select name="zoek-aanbieders" id="zoek-aanbieders">
 
-<!--        <input type="radio" id="overig" name="specifieke_taak" value="OVERIG">-->
-<!--        <label for="overig">Overig</label>-->
+    </select>
+    <!--    <form id="ouderejaars-details" open>-->
+    <!--        <h3 class="buddyNaam">Naam: </h3>-->
+    <!--        <h3 class="buddyExpertise">Expertise: </h3>-->
+    <!--    </form>-->
 
-<!--    <br>-->
-<!--        <label> Waar gaat het precies om:-->
-<!--            <input type="text">-->
-<!--        </label> <br>-->
-
-<!--    <button type="reset">Cancel</button>-->
-<!--    <button type="submit">Creeër</button>-->
-<!--</form>-->
-
-<!--&lt;!&ndash;<div id="userInfoDiv">&ndash;&gt;-->
-<!--&lt;!&ndash;    <p>Naam: </p>&ndash;&gt;-->
-<!--&lt;!&ndash;    <p>Leeftijd: </p>&ndash;&gt;-->
-<!--&lt;!&ndash;    <p>Woonplaats: </p>&ndash;&gt;-->
-<!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-<!--<div id="sentRequests">-->
-<!--    <p>Hier komen al je verzonden requests</p>-->
-<!--</div>-->
-
-<!--<div>-->
-<!--    <button type="submit" id="logOutButton" >Log out</button>-->
-<!--    <button type="submit" id="deleteButton" value="verwijder profiel">Verwijder Profiel</button>-->
-<!--</div>-->
-
-<!--<div>-->
-<!--    <label for="zoek-aanbieders">Dit zijn je opties</label>-->
-<!--    <select name="zoek-aanbieders" id="zoek-aanbieders">-->
-
-<!--    </select>-->
-<!--    &lt;!&ndash;    <form id="ouderejaars-details" open>&ndash;&gt;-->
-<!--    &lt;!&ndash;        <h3 class="buddyNaam">Naam: </h3>&ndash;&gt;-->
-<!--    &lt;!&ndash;        <h3 class="buddyExpertise">Expertise: </h3>&ndash;&gt;-->
-<!--    &lt;!&ndash;    </form>&ndash;&gt;-->
-
-<!--</div>-->
+</div>
 
 
-<!--</body>-->
-<!--</html>-->
+</body>
+</html>

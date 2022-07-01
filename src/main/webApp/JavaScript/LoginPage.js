@@ -8,9 +8,6 @@
 //     console.log(key)
 // }
 
-let firstname = document.querySelector("#userName").value;
-let password = document.querySelector("#password").value;
-
 function login(event){
     event.preventDefault()
 
@@ -24,6 +21,8 @@ function login(event){
 }
 
 function userLogin(){
+    let firstname = document.querySelector("#userName").value;
+    let password = document.querySelector("#password").value;
     fetch(`/restservices/gebruikersApplicatie/${firstname}/${password}`, {method: "GET"})
         .then(response => {
             console.log(response.status)
@@ -34,17 +33,19 @@ function userLogin(){
 }
 
 function supplierLogin(){
+    let firstname = document.querySelector("#userName").value;
+    let password = document.querySelector("#password").value;
     fetch(`/restservices/aanbiedersApplicatie/${firstname}/${password}`, {method: "GET"})
         .then(response => {
             console.log(response.status)
-            if(response.status === 200){
+            if(response.status === true){
                 window.location.assign(`/UserPage.html`);
             }
         });
 }
 
 function loginKnop(){
-    document.getElementById('submitLogInButton').addEventListener('click', event => login(event));
+    document.querySelector("#submitLogInButton").addEventListener('click', event => login(event));
 }
 
 loginKnop();

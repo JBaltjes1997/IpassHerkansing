@@ -44,7 +44,7 @@ function getSuppliers(response){
 
 const deleteButton = document.querySelector("#deleteButton")
 deleteButton.addEventListener("click", () => {
-    fetch(`/restservices/gebruikersApplicatie/${voornaam}/${wachtwoord}`, {method: "delete"})
+    fetch(`/restservices/gebruikersApplicatie/${id}`, {method: "delete"})
         .then(response => {
             console.log(response.status)
             if(response.status === 200){

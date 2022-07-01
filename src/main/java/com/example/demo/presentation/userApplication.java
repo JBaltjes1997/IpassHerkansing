@@ -126,7 +126,7 @@ public class userApplication {
         }
     }
 
-    @GET
+    @POST
     @Path("/{voornaam}/{wachtwoord}")
     @Produces(MediaType.APPLICATION_JSON)
     public boolean userLogIn(@PathParam("voornaam") String voornaam, @PathParam("wachtwoord") String wachtwoord){
