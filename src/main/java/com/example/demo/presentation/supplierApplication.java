@@ -5,6 +5,7 @@ package com.example.demo.presentation;
 
 import com.example.demo.data.databaseInfo;
 import com.example.demo.data.databaseQuery;
+import com.example.demo.domain.Supplier;
 
 import javax.json.Json;
 import javax.json.JsonArrayBuilder;
@@ -27,9 +28,15 @@ public class supplierApplication {
         JsonArrayBuilder builder = Json.createArrayBuilder();
         try{
             databaseQuery.setDBConnection();
-            ArrayList<String> suppliers = databaseInfo.getSuppliers();
-            for(String supplier : suppliers){
-                builder.add(supplier);
+            ArrayList<Supplier> suppliers = databaseInfo.getSuppliers();
+            for(Supplier supplier : suppliers){
+                JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
+                objectBuilder.add("id", supplier.getId());
+                objectBuilder.add("naam", supplier.getFirstName());
+                objectBuilder.add("achternaam", supplier.getLastName());
+                objectBuilder.add("specialisme", supplier.getSpecialty());
+                objectBuilder.add("wachtwoord", supplier.getPassword());
+                builder.add(objectBuilder);
             }
             databaseQuery.closeDBConnection();
             return builder.build().toString();

@@ -28,15 +28,37 @@ public class userApplication {
 //        return builder.build().toString();
 //    }
 
+//    @GET
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public String allUsers() throws SQLException {
+//        JsonArrayBuilder builder = Json.createArrayBuilder();
+//        try{
+//            databaseQuery.setDBConnection();
+//            ArrayList<String> users = databaseInfo.getUsers();
+//            for(String user : users){
+//                builder.add(user);
+//            }
+//            databaseQuery.closeDBConnection();
+//            return builder.build().toString();
+//
+//        }catch(Exception e){
+//            return e.getMessage();
+//        }
+//    }
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String allUsers() throws SQLException {
         JsonArrayBuilder builder = Json.createArrayBuilder();
         try{
             databaseQuery.setDBConnection();
-            ArrayList<String> users = databaseInfo.getUsers();
-            for(String user : users){
-                builder.add(user);
+            ArrayList<User> users = databaseInfo.getUsers();
+            for(User user : users){
+                JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
+                objectBuilder.add("id", user.getId());
+                objectBuilder.add("naam", user.getFirstName());
+                objectBuilder.add("achternaam", user.getLastName());
+                objectBuilder.add("wachtwoord", user.getPassword());
+                builder.add(objectBuilder);
             }
             databaseQuery.closeDBConnection();
             return builder.build().toString();
@@ -45,22 +67,24 @@ public class userApplication {
             return e.getMessage();
         }
     }
+
 //    @GET
+//    @Path("/{voornaam}/{wachtwoord}")
 //    @Produces(MediaType.APPLICATION_JSON)
-//    public String allUsers() throws SQLException {
-//        JsonArrayBuilder builder = Json.createArrayBuilder();
+//    public String UserInfo(@PathParam("voornaam") String voornaam,
+//                           @PathParam("wachtwoord") String wachtwoord) throws SQLException {
+//        JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
 //        try{
 //            databaseQuery.setDBConnection();
-//            ArrayList<User> users = databaseInfo.getUsers();
-//            for(User user : users){
-////                JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
-////                builder.add((JsonObjectBuilder) user);
-////                builder.add(objectBuilder);
-//                builder.add(user);
-//            }
-//            databaseQuery.closeDBConnection();
-//            return builder.build().toString();
+//            User users = databaseInfo.getUserInfo(voornaam, wachtwoord);
 //
+//            objectBuilder.add("id", users.getId());
+//            objectBuilder.add("naam", users.getFirstName());
+//            objectBuilder.add("achternaam", users.getLastName());
+//            objectBuilder.add("wachtwoord", users.getPassword());
+//
+//            databaseQuery.closeDBConnection();
+//            return objectBuilder.build().toString();
 //        }catch(Exception e){
 //            return e.getMessage();
 //        }
@@ -86,24 +110,41 @@ public class userApplication {
             return Response.status(405).build();
         }
     }
+
+    @DELETE
+    @Path("/{id}")
+    public void deleteUserProfile(@PathParam("id") int id){
+        try{
+            databaseQuery.setDBConnection();
+
+            databaseInfo.deleteUserProfile(id);
+
+            databaseQuery.closeDBConnection();
+
+        } catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+
 //
-//    @POST
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public void userLogIn(String voornaam, String wachtwoord){
-//        try{
-//            databaseQuery.setDBConnection();
-//
-//            ArrayList<String> users = databaseInfo.getUsers();
-//            for(String user : users){
-//                if(){
-//
-//                }
-//            }
-//
-//            databaseQuery.closeDBConnection();
-//
-//        } catch (Exception e){
-//            System.out.println(e.getMessage());
-//        }
-//    }
+    @GET
+    @Path("/{voornaam}/{wachtwoord}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public boolean userLogIn(@PathParam("voornaam") String voornaam, @PathParam("wachtwoord") String wachtwoord){
+        try{
+            databaseQuery.setDBConnection();
+            ArrayList<User> users = databaseInfo.getUsers();
+
+            for(User user : users){
+                if(user.getFirstName().equals(voornaam) && user.getPassword().equals(wachtwoord)){
+                    return true;
+                }
+            }
+            databaseQuery.closeDBConnection();
+
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
 }

@@ -41,3 +41,14 @@ function getSuppliers(response){
         select.appendChild(optie);
     }
 }
+
+const deleteButton = document.querySelector("#deleteButton")
+deleteButton.addEventListener("click", () => {
+    fetch(`/restservices/gebruikersApplicatie/${voornaam}/${wachtwoord}`, {method: "delete"})
+        .then(response => {
+            console.log(response.status)
+            if(response.status === 200){
+                window.location.assign(`/InlogPage.html`);
+            }
+        });
+})

@@ -1,5 +1,6 @@
 package com.example.demo.data;
 
+import com.example.demo.domain.Supplier;
 import com.example.demo.domain.User;
 
 import javax.ws.rs.core.Response;
@@ -40,52 +41,60 @@ public class databaseInfo {
         }
     }
 
-    public static ArrayList<String> getUsers() throws SQLException {
-        ArrayList<String> gebruikers = new ArrayList<>();
+    public static User getUserInfo(String voornaam, String wachtwoord) throws SQLException {
+        Connection connection = databaseQuery.getDBConnection();
+        Statement statement = connection.createStatement();
+        String query = String.format("SELECT * FROM gebruiker where gebruiker.voornaam = %s and gebruiker.wachtwoord = %s", voornaam, wachtwoord);
+
+        ResultSet resultSet = statement.executeQuery(query);
+
+        User dezeUser = new User();
+        while(resultSet.next()){
+            dezeUser.setId(resultSet.getInt(1));
+            dezeUser.setFirstName(resultSet.getString(2));
+            dezeUser.setLastName(resultSet.getString(3));
+            dezeUser.setPassword(resultSet.getString(11));
+        }
+        return dezeUser;
+    }
+
+    public static ArrayList<User> getUsers() throws SQLException {
+        ArrayList<User> gebruikers = new ArrayList<>();
 
         Connection connection = databaseQuery.getDBConnection();
         Statement statement = connection.createStatement();
 
-        ResultSet resultSet = statement.executeQuery("SELECT voornaam FROM gebruiker");
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM gebruiker");
 
         while(resultSet.next()){
-            gebruikers.add(resultSet.getString(1));
+            User dezeUser = new User();
+            dezeUser.setId(resultSet.getInt(1));
+            dezeUser.setFirstName(resultSet.getString(2));
+            dezeUser.setLastName(resultSet.getString(3));
+            dezeUser.setPassword(resultSet.getString(11));
+            gebruikers.add(dezeUser);
         }
         return gebruikers;
     }
 
-//    public static ArrayList<User> getUsers() throws SQLException {
-//        ArrayList<User> gebruikers = new ArrayList<>();
-//
-//        Connection connection = databaseQuery.getDBConnection();
-//        Statement statement = connection.createStatement();
-//
-//        ResultSet resultSet = statement.executeQuery("SELECT * FROM gebruiker");
-//
-//        while(resultSet.next()){
-//            User dezeUser = new User();
-//            dezeUser.setId(resultSet.getInt(1));
-//            dezeUser.setFirstName(resultSet.getString(2));
-//            dezeUser.setLastName(resultSet.getString(3));
-//            dezeUser.setPassword(resultSet.getString(11));
-//            gebruikers.add(dezeUser);
-//        }
-//        return gebruikers;
-//    }
-
-    public static ArrayList<String> getSuppliers() throws SQLException {
-        ArrayList<String> gebruikers = new ArrayList<>();
+    public static ArrayList<Supplier> getSuppliers() throws SQLException {
+        ArrayList<Supplier> aanbieders = new ArrayList<>();
 
         Connection connection = databaseQuery.getDBConnection();
         Statement statement = connection.createStatement();
 
-        ResultSet resultSet = statement.executeQuery("SELECT voornaam, achternaam FROM aanbieder");
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM aanbieder");
 
         while(resultSet.next()){
-            gebruikers.add(resultSet.getString(1));
-            gebruikers.add(resultSet.getString(1));
+            Supplier dezeSupplier = new Supplier();
+            dezeSupplier.setId(resultSet.getInt(1));
+            dezeSupplier.setFirstName(resultSet.getString(2));
+            dezeSupplier.setLastName(resultSet.getString(3));
+            dezeSupplier.setPassword(resultSet.getString(11));
+            dezeSupplier.setSpecialty(resultSet.getString(10));
+            aanbieders.add(dezeSupplier);
         }
-        return gebruikers;
+        return aanbieders;
     }
 
     public static ArrayList<String> getRequests() throws SQLException, ClassNotFoundException {
@@ -103,6 +112,14 @@ public class databaseInfo {
             hulpvragen.add(resultSet.getString(3));
         }
         return hulpvragen;
+    }
+
+    public static void deleteUserProfile(int id) throws SQLException{
+        Connection connection = databaseQuery.getDBConnection();
+        Statement statement = connection.createStatement();
+        String query = String.format("delete * FROM gebruiker where gebruiker.id = %d", id);
+
+        statement.executeQuery(query);
     }
 
 //    public static Response createNewRequest(String username, String wachtwoord) throws SQLException {
