@@ -48,7 +48,12 @@ deleteButton.addEventListener("click", () => {
         .then(response => {
             console.log(response.status)
             if(response.status === 200){
-                window.location.assign(`/InlogPage.html`);
+                window.location.assign(`/LoginPage.html`);
             }
         });
+})
+
+const logOutButton = document.querySelector("#logOutButton")
+logOutButton.addEventListener('click', () => {
+    window.location.assign(`/LoginPage.html`);
 })

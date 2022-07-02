@@ -126,17 +126,18 @@ public class userApplication {
         }
     }
 
-    @POST
+    @GET
     @Path("/{voornaam}/{wachtwoord}")
     @Produces(MediaType.APPLICATION_JSON)
-    public boolean userLogIn(@PathParam("voornaam") String voornaam, @PathParam("wachtwoord") String wachtwoord){
+    public Response userLogIn(@PathParam("voornaam") String voornaam, @PathParam("wachtwoord") String wachtwoord){
         try{
             databaseQuery.setDBConnection();
             ArrayList<User> users = databaseInfo.getUsers();
+//            User user = databaseInfo.getUserInfo(voornaam, wachtwoord);
 
             for(User user : users){
                 if(user.getFirstName().equals(voornaam) && user.getPassword().equals(wachtwoord)){
-                    return true;
+                    return Response.status(200).build();
                 }
             }
             databaseQuery.closeDBConnection();
@@ -144,6 +145,6 @@ public class userApplication {
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
-        return false;
+        return Response.status(405).build();
     }
 }

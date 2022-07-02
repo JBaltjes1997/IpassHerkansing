@@ -8,12 +8,13 @@
 //     console.log(key)
 // }
 
+
+
 function login(event){
     event.preventDefault()
 
     let selector = document.querySelector("#user-login").value;
-    if (selector === 'USER') {
-        console.log(firstname);
+    if (selector === 'USER-Login') {
         userLogin();
     } else {
         supplierLogin();
