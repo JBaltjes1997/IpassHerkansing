@@ -44,13 +44,17 @@ function getSuppliers(response){
 
 const deleteButton = document.querySelector("#deleteButton")
 deleteButton.addEventListener("click", () => {
-    fetch(`/restservices/gebruikersApplicatie/${id}`, {method: "delete"})
-        .then(response => {
-            console.log(response.status)
-            if(response.status === 200){
-                window.location.assign(`/LoginPage.html`);
-            }
-        });
+    var wachtwoord=prompt('Ter bevestiging, vul alsjeblieft je wachtwoord hier in: ');
+    fetch(`/restservices/gebruikersApplicatie/${wachtwoord}`, {method: "DELETE"})
+    //     .then(res => res.text()) // or res.json()
+    //     .then(res => console.log(res));
+        .then(window.location.assign(`/LoginPage.html`));
+        // .then(response => {
+        //     // console.log(response.status)
+        //     if(response.status === 204){
+        //         window.location.assign(`/LoginPage.html`);
+        //     }
+        // });
 })
 
 const logOutButton = document.querySelector("#logOutButton")

@@ -17,12 +17,9 @@ function check_nieuw_account(event){
     event.preventDefault();
     var selector = document.querySelector("#user").value;
     if (selector === 'USER') {
-        console.log("hoi");
         var firstname = document.querySelector("#fname").value;
         var lastname = document.querySelector("#lname").value;
         var password = document.querySelector("#password").value;
-
-        console.log(firstname);
 
         fetch(`/restservices/gebruikersApplicatie/${firstname}/${lastname}/${password}`, {method: "POST"})
             .then(response => {

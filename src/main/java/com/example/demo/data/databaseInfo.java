@@ -33,7 +33,7 @@ public class databaseInfo {
 
         try {
             statement.execute("INSERT INTO aanbieder(id, voornaam, achternaam, specialisme, wachtwoord ) values (nextval('aanbieder_id_seq'), '"
-                    +voornaam+"', '" +achternaam+"', '" +specialisme +"' '" +wachtwoord+"')");
+                    +voornaam+"', '" +achternaam+"', '" +specialisme +"' , '" +wachtwoord+"')");
             return Response.ok().build();
         } catch (Exception e){
             System.out.println(e.getMessage());
@@ -41,19 +41,20 @@ public class databaseInfo {
         }
     }
 
-    public static User getUserInfo(String voornaam, String wachtwoord) throws SQLException {
+    public static User getUserInfo(String wachtwoord) throws SQLException {
         Connection connection = databaseQuery.getDBConnection();
         Statement statement = connection.createStatement();
-        String query = String.format("SELECT * FROM gebruiker where gebruiker.voornaam = %s and gebruiker.wachtwoord = %s", voornaam, wachtwoord);
 
-        ResultSet resultSet = statement.executeQuery(query);
+//        String query = String.format("SELECT * FROM gebruiker where gebruiker.wachtwoord = %s", wachtwoord);
+
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM gebruiker where gebruiker.wachtwoord = '" +wachtwoord+"'");
 
         User dezeUser = new User();
         while(resultSet.next()){
             dezeUser.setId(resultSet.getInt(1));
-            dezeUser.setFirstName(resultSet.getString(2));
-            dezeUser.setLastName(resultSet.getString(3));
-            dezeUser.setPassword(resultSet.getString(11));
+//            dezeUser.setFirstName(resultSet.getString(2));
+//            dezeUser.setLastName(resultSet.getString(3));
+//            dezeUser.setPassword(resultSet.getString(11));
         }
         return dezeUser;
     }
@@ -117,7 +118,7 @@ public class databaseInfo {
     public static void deleteUserProfile(int id) throws SQLException{
         Connection connection = databaseQuery.getDBConnection();
         Statement statement = connection.createStatement();
-        String query = String.format("delete * FROM gebruiker where gebruiker.id = %d", id);
+        String query = String.format("delete from gebruiker where gebruiker.id = %d", id);
 
         statement.executeQuery(query);
     }

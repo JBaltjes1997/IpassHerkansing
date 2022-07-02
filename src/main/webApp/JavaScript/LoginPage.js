@@ -29,6 +29,8 @@ function userLogin(){
             console.log(response.status)
             if(response.status === 200){
                 window.location.assign(`/UserPage.html`);
+            } else {
+                window.alert("Gebruiker bestaat niet ");
             }
         });
 }
@@ -39,8 +41,10 @@ function supplierLogin(){
     fetch(`/restservices/aanbiedersApplicatie/${firstname}/${password}`, {method: "GET"})
         .then(response => {
             console.log(response.status)
-            if(response.status === true){
-                window.location.assign(`/UserPage.html`);
+            if(response.status === 200){
+                window.location.assign(`/SupplierPage.html`);
+            } else {
+                window.alert("Gebruiker bestaat niet ");
             }
         });
 }
