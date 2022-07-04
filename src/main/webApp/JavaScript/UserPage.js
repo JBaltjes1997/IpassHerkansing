@@ -1,3 +1,13 @@
+const createRequestForm = document.getElementById('hulpvraagform');
+const createRequestFormBtn = document.getElementById("dezeButton");
+createRequestFormBtn.onclick = function () {
+    if (createRequestForm.style.display !== "none") {
+        createRequestForm.style.display = "none";
+    } else {
+        createRequestForm.style.display = "block";
+    }
+};
+
 
 const deleteButton = document.querySelector("#deleteButton")
 deleteButton.addEventListener("click", () => {
@@ -11,9 +21,18 @@ logOutButton.addEventListener('click', () => {
     window.location.assign(`/LoginPage.html`);
 })
 
+const alterProfileForm = document.getElementById('alterProfileForm');
+const alterProfileFormBtn = document.getElementById("alterButton");
+alterProfileFormBtn.onclick = function () {
+    if (alterProfileForm.style.display !== "none") {
+        alterProfileForm.style.display = "none";
+    } else {
+        alterProfileForm.style.display = "block";
+    }
+};
+
 const confirmAlterButton = document.querySelector("#confirmUpdate");
 confirmAlterButton.addEventListener('click', () => alterProfile());
-
 
 async function alterProfile(){
     let current_firstname = document.querySelector("#current_name").value;
@@ -28,6 +47,7 @@ async function alterProfile(){
         .then(response => {
             console.log(response.status)
             if(response.status === 200){
+                box.style.display = "none";
                 window.location.assign(`/UserPage.html`);
             } else {
                 window.alert("De gebruiker die je ingevuld hebt bestaat niet");

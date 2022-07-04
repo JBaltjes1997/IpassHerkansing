@@ -6,6 +6,7 @@ h1 {
     /*height: auto;*/
     /*padding: 5px;*/
     /*border: black solid 1px;*/
+    display: none;
     width: 20%;
     border: 1px black solid;
     text-align: left;
@@ -14,9 +15,9 @@ h1 {
     background-color: white;
 }
 
-/*#alterProfileForm{*/
-/*    display: none;*/
-/*}*/
+#alterProfileForm{
+    display: none;
+}
 
 
 
