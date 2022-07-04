@@ -108,10 +108,4 @@ public class Person implements Serializable {
     public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-
-    public void createProfile(){}
-
-    public void updateProfile(){}
-
-    public void deleteProfile(){}
 }

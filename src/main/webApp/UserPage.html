@@ -11,76 +11,70 @@
 
 <h1>Jouw Pagina</h1>
 
-<div>
-    <label> Creeër nieuwe hulpvraag </label>
-    <input type="button" name="createRequestButton" value="creeër" id="dezeButton">
-</div>
+<div class = "divContainer">
 
-<form class="hulpvraagform" id="hulpvraagform">
-    <p>Waar valt het onder: </p>
-        <input type="radio" id="huis" name="specifieke_taak" value="HUIS">
-        <label for="huis"> Huis </label>
 
-        <input type="radio" id="tuin" name="specifieke_taak" value="TUIN">
-        <label for="tuin">Tuin </label>
 
-        <input type="radio" id="keuken" name="specifieke_taak" value="KEUKEN">
-        <label for="keuken">Keuken</label>
+    <div class="item1">
+        <label> Creeër nieuwe hulpvraag </label>
+        <input type="button" name="createRequestButton" value="creeër" id="dezeButton">
+    </div>
 
-        <input type="radio" id="overig" name="specifieke_taak" value="OVERIG">
-        <label for="overig">Overig</label>
+    <form class="hulpvraagform" id="hulpvraagform">
+        <p>Waar valt het onder: </p>
+            <input type="radio" id="huis" name="specifieke_taak" value="HUIS">
+            <label for="huis"> Huis </label>
 
-    <br>
-        <label> Waar gaat het precies om:
-            <input type="text">
-        </label> <br>
+            <input type="radio" id="tuin" name="specifieke_taak" value="TUIN">
+            <label for="tuin">Tuin </label>
 
-    <button type="reset">Cancel</button>
-    <button type="submit">Creeër</button>
-</form>
+            <input type="radio" id="keuken" name="specifieke_taak" value="KEUKEN">
+            <label for="keuken">Keuken</label>
 
-<!--<div id="userInfoDiv">-->
-<!--    <p>Naam: </p>-->
-<!--    <p>Leeftijd: </p>-->
-<!--    <p>Woonplaats: </p>-->
-<!--</div>-->
+            <input type="radio" id="overig" name="specifieke_taak" value="OVERIG">
+            <label for="overig">Overig</label>
 
-<div id="sentRequests">
-    <p>Hier komen al je verzonden requests</p>
-</div>
+        <br>
+            <label> Waar gaat het precies om:
+                <input type="text">
+            </label> <br>
 
-<div>
-    <button type="submit" id="logOutButton" >Log out</button>
-    <input type="submit" id="deleteButton" value="verwijder profiel">
-    <input type="button" id="alterButton" value="verander profiel">
-<!--    <input type="button" id="alterButton" name="Verander profiel" value="Verander profiel" onclick="showDiv()" />-->
-</div>
+        <label for="zoek-aanbieders">Dit zijn je opties</label>
+        <select name="zoek-aanbieders" id="zoek-aanbieders">
 
-<form id="alterProfileForm" style="display:none;">
-    <label>Wat is je huidige gebruikersnaam: <input type="text" id="current_name" name="current_name" required><br>
-    </label><br>
+        </select> <br>
 
-    <label>Wat wordt je nieuwe gebruikersnaam: <input type="text" id="new_name" name="new_name" required><br>
-    </label><br>
+        <button type="reset">Cancel</button>
+        <button type="submit">Creeër</button>
+    </form>
 
-    <label>Wat wordt je nieuwe achternaam: <input type="text" id="lname" name="lname" required><br>
-    </label><br>
 
-    <label>Wat word je nieuwe wachtwoord: <input type="password" id="password" name="password" required><br>
-    </label><br>
-    <button type="reset">Cancel</button>
-    <input type="button" id="confirmUpdate" value="Bevestig wijziging">
-</form>
+    <div id="sentRequests" class = "item2">
+        <p>Hier komen al je verzonden requests</p>
+    </div>
 
-<div>
-    <label for="zoek-aanbieders">Dit zijn je opties</label>
-    <select name="zoek-aanbieders" id="zoek-aanbieders">
+    <div>
+        <button type="submit" id="logOutButton" >Log out</button>
+        <input type="submit" id="deleteButton" value="verwijder profiel">
+        <input type="button" id="alterButton" value="verander profiel">
+    <!--    <input type="button" id="alterButton" name="Verander profiel" value="Verander profiel" onclick="showDiv()" />-->
+    </div>
 
-    </select>
-    <!--    <form id="ouderejaars-details" open>-->
-    <!--        <h3 class="buddyNaam">Naam: </h3>-->
-    <!--        <h3 class="buddyExpertise">Expertise: </h3>-->
-    <!--    </form>-->
+    <form id="alterProfileForm" style="display:none;" class="item3">
+        <label>Wat is je huidige gebruikersnaam: <input type="text" id="current_name" name="current_name" required><br>
+        </label><br>
+
+        <label>Wat wordt je nieuwe gebruikersnaam: <input type="text" id="new_name" name="new_name" required><br>
+        </label><br>
+
+        <label>Wat wordt je nieuwe achternaam: <input type="text" id="lname" name="lname" required><br>
+        </label><br>
+
+        <label>Wat word je nieuwe wachtwoord: <input type="password" id="password" name="password" required><br>
+        </label><br>
+        <button type="reset">Cancel</button>
+        <input type="button" id="confirmUpdate" value="Bevestig wijziging">
+    </form>
 
 </div>
 

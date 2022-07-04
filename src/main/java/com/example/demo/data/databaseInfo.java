@@ -103,13 +103,13 @@ public class databaseInfo {
         ResultSet resultSet = statement.executeQuery("SELECT * FROM aanbieder");
 
         while(resultSet.next()){
-            Supplier dezeSupplier = new Supplier();
-            dezeSupplier.setId(resultSet.getInt(1));
-            dezeSupplier.setFirstName(resultSet.getString(2));
-            dezeSupplier.setLastName(resultSet.getString(3));
-            dezeSupplier.setPassword(resultSet.getString(11));
-            dezeSupplier.setSpecialty(resultSet.getString(9));
-            aanbieders.add(dezeSupplier);
+            Supplier dezeAanbieder = new Supplier();
+            dezeAanbieder.setId(resultSet.getInt(1));
+            dezeAanbieder.setFirstName(resultSet.getString(2));
+            dezeAanbieder.setLastName(resultSet.getString(3));
+            dezeAanbieder.setSpecialty(resultSet.getString(9));
+            dezeAanbieder.setPassword(resultSet.getString(11));
+            aanbieders.add(dezeAanbieder);
         }
         return aanbieders;
     }

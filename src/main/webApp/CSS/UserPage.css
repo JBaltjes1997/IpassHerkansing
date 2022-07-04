@@ -2,10 +2,26 @@ h1 {
     text-align: center;
 }
 
+body{
+    background: linear-gradient(to right, #00AAFF, #00FF6C);
+}
+
 #hulpvraagform{
     /*height: auto;*/
     /*padding: 5px;*/
     /*border: black solid 1px;*/
+    display: none;
+    width: 30%;
+    border: 1px black solid;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 15px;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+}
+
+#alterProfileForm{
     display: none;
     width: 20%;
     border: 1px black solid;
@@ -13,10 +29,6 @@ h1 {
     padding-top: 5px;
     padding-bottom: 15px;
     background-color: white;
-}
-
-#alterProfileForm{
-    display: none;
 }
 
 
