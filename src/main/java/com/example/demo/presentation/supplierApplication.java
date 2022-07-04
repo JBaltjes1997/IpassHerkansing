@@ -6,14 +6,12 @@ package com.example.demo.presentation;
 import com.example.demo.data.databaseInfo;
 import com.example.demo.data.databaseQuery;
 import com.example.demo.domain.Supplier;
+import com.example.demo.domain.User;
 
 import javax.json.Json;
 import javax.json.JsonArrayBuilder;
 import javax.json.JsonObjectBuilder;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.sql.SQLException;
@@ -46,67 +44,77 @@ public class supplierApplication {
         }
     }
 
-//    @POST
+    @POST
+    @Path("/{voornaam}/{achternaam}/{wachtwoord}/{specialiteit}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response createNewSupplierProfile(@PathParam("voornaam") String voornaam,
+                                         @PathParam("achternaam") String achternaam,
+                                         @PathParam("wachtwoord") String wachtwoord,
+                                             @PathParam("specialiteit") String specialiteit){
+        try{
+            databaseQuery.setDBConnection();
+
+            Response response = databaseInfo.createNewSupplierProfile(voornaam, achternaam, wachtwoord, specialiteit );
+
+            databaseQuery.closeDBConnection();
+
+            return response;
+
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+            return Response.status(405).build();
+        }
+    }
+
+    @GET
+    @Path("/{wachtwoord}{voornaam}/")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response supplierLogIn(@PathParam("voornaam") String voornaam, @PathParam("wachtwoord") String wachtwoord){
+        try{
+            databaseQuery.setDBConnection();
+            ArrayList<Supplier> suppliers = databaseInfo.getSuppliers();
+
+            for(Supplier supplier : suppliers){
+                if(supplier.getFirstName().equals(voornaam) && supplier.getPassword().equals(wachtwoord)){
+                    return Response.status(200).build();
+                }
+            }
+            databaseQuery.closeDBConnection();
+
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+            return Response.status(405).build();
+        }
+        return Response.status(405).build();
+    }
+
+    @GET
+    @Path("/{voornaam}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String testing(@PathParam("voornaam") String voornaam){
+        JsonArrayBuilder builder = Json.createArrayBuilder();
+        builder.add("werkt de URL?");
+
+        return builder.build().toString();
+        }
+}
+
+
+//    @DELETE
+//    @Path("/{wachtwoord}")
 //    @Produces(MediaType.APPLICATION_JSON)
-//    public void supplierLogIn(String voornaam, String wachtwoord){
+//    public void deleteUserProfile(@PathParam("wachtwoord") String wachtwoord){
 //        try{
 //            databaseQuery.setDBConnection();
 //
-//            ArrayList<String> users = databaseInfo.getSuppliers();
-//            for(String user : users){
-//                if(user.contains(voornaam) && user.contains(wachtwoord)){
+//            User user = databaseInfo.getSupplierInfo(wachtwoord);
+//            int id = user.getId();
 //
-//                }
-//            }
+//            databaseInfo.deleteUserProfile(id);
 //
 //            databaseQuery.closeDBConnection();
 //
-//        } catch (Exception e){
+//        } catch(Exception e){
 //            System.out.println(e.getMessage());
 //        }
 //    }
-
-//    @GET
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public String getHulpvragen() throws SQLException, ClassNotFoundException {
-//        databaseQuery.setDBConnection();
-//        JsonArrayBuilder builder = Json.createArrayBuilder();
-//        builder.add("Connection gelukt");
-//        ArrayList<String> requests = databaseInfo.getRequests();
-//        for(String request : requests){
-//            JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
-//            objectBuilder.add("beschrijving", request.charAt(1));
-//            objectBuilder.add("categorie", request.charAt(2));
-//            builder.add(objectBuilder);
-//        }
-//        databaseQuery.closeDBConnection();
-//
-//        return builder.build().toString();
-//    }
-
-//    @GET
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public ArrayList<String> getUser() throws SQLException {
-//        databaseQuery.setDBConnection();
-//
-//        JsonArrayBuilder builder = Json.createArrayBuilder();
-//        ArrayList<String> users = databaseInfo.getUsers();
-//        for(String user : users){
-//            JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
-//            objectBuilder.add("voornaam", user.charAt(1));
-//            builder.add(objectBuilder);
-//        }
-//        databaseQuery.closeDBConnection();
-//
-//        return users;
-//    }
-
-//    @GET
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public String getProgrammeurs(){
-//        JsonArrayBuilder builder = Json.createArrayBuilder();
-//        builder.add("werkt dit nog?");
-//
-//        return builder.build().toString();
-//    }
-}

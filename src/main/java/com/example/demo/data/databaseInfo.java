@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class databaseInfo {
 
-    public static Response createNewUserProfile(String voornaam, String achternaam, String wachtwoord )
+    public static Response createNewUserProfile(String voornaam, String achternaam, String wachtwoord)
             throws SQLException, ClassNotFoundException {
 
         Connection connection = databaseQuery.getDBConnection();
@@ -25,7 +25,23 @@ public class databaseInfo {
         }
     }
 
-    public static Response createNewSupplierProfile(int id, String voornaam, String achternaam, String specialisme, String wachtwoord )
+    public static Response updateUserProfile(String hvoornaam, String Nvoornaam, String achternaam, String wachtwoord) throws SQLException{
+        Connection connection = databaseQuery.getDBConnection();
+        Statement statement = connection.createStatement();
+
+        try {
+            statement.execute("update gebruiker set voornaam = '" +Nvoornaam+ "', achternaam = '" +achternaam+ "' , wachtwoord = '" +wachtwoord+ "' where voornaam = '" +hvoornaam+ "';");
+//            statement.execute("update gebruiker\n" +
+//                    "set voornaam = '"+Nvoornaam+"', achternaam = '"+achternaam+"', wachtwoord = '"+wachtwoord+"'\n" +
+//                    "where gebruiker.voornaam = '"+hvoornaam+"';");
+            return Response.ok().build();
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+            return Response.status(405).build();
+        }
+    }
+
+    public static Response createNewSupplierProfile(String voornaam, String achternaam, String specialisme, String wachtwoord )
             throws SQLException, ClassNotFoundException {
 
         Connection connection = databaseQuery.getDBConnection();
@@ -52,9 +68,9 @@ public class databaseInfo {
         User dezeUser = new User();
         while(resultSet.next()){
             dezeUser.setId(resultSet.getInt(1));
-//            dezeUser.setFirstName(resultSet.getString(2));
-//            dezeUser.setLastName(resultSet.getString(3));
-//            dezeUser.setPassword(resultSet.getString(11));
+            dezeUser.setFirstName(resultSet.getString(2));
+            dezeUser.setLastName(resultSet.getString(3));
+            dezeUser.setPassword(resultSet.getString(11));
         }
         return dezeUser;
     }
@@ -92,7 +108,7 @@ public class databaseInfo {
             dezeSupplier.setFirstName(resultSet.getString(2));
             dezeSupplier.setLastName(resultSet.getString(3));
             dezeSupplier.setPassword(resultSet.getString(11));
-            dezeSupplier.setSpecialty(resultSet.getString(10));
+            dezeSupplier.setSpecialty(resultSet.getString(9));
             aanbieders.add(dezeSupplier);
         }
         return aanbieders;

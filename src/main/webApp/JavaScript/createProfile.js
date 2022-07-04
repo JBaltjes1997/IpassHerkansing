@@ -15,35 +15,47 @@ radioButtons.forEach(radio => {
 
 function check_nieuw_account(event){
     event.preventDefault();
-    var selector = document.querySelector("#user").value;
-    if (selector === 'USER') {
-        var firstname = document.querySelector("#fname").value;
-        var lastname = document.querySelector("#lname").value;
-        var password = document.querySelector("#password").value;
-
-        fetch(`/restservices/gebruikersApplicatie/${firstname}/${lastname}/${password}`, {method: "POST"})
-            .then(response => {
-                console.log(response.status)
-                if(response.status === 200){
-                    window.location.assign(`/UserPage.html`);
-                }
-            });
+    let selector = document.querySelector("#user");
+    if (selector.checked) {
+        console.log('gebruiker');
+        createNewUserProfile();
     } else {
-        console.log("Niet gelukt")
-
-        // var firstname = document.querySelector("#fname").value;
-        // var lastname = document.querySelector("#lname").value;
-        // var password = document.querySelector("#password").value;
-        // var specialty = document.querySelector("#specialty").value;
-        //
-        // fetch(`/restservices/ProgrammersForHire/${naam}/${wachtwoord}/${expertise}`, {method: "POST"})
-        //     .then(response => {
-        //
-        //         if(response.status === 200){
-        //             window.location.assign(`/SupplierPage.html`);
-        //         }
-        //     });
+        console.log('aanbieder');
+        createNewSupplierProfile();
     }
+}
+
+function createNewUserProfile(){
+    var firstname = document.querySelector("#fname").value;
+    var lastname = document.querySelector("#lname").value;
+    var password = document.querySelector("#password").value;
+
+    fetch(`/restservices/gebruikersApplicatie/${firstname}/${lastname}/${password}`, {method: "POST"})
+        .then(response => {
+            console.log(response.status)
+            if(response.status === 200){
+                window.location.assign(`/UserPage.html`);
+            } else {
+                window.alert("Deze gebruiker-wachtwoord combinatie bestaat al");
+            }
+        });
+}
+
+function createNewSupplierProfile(){
+    var firstname = document.querySelector("#fname").value;
+    var lastname = document.querySelector("#lname").value;
+    var password = document.querySelector("#password").value;
+    var specialisme = document.querySelector("#specialty").value;
+
+    fetch(`/restservices/aanbiedersApplicatie/${firstname}/${lastname}/${password}/${specialisme}`, {method: "POST"})
+        .then(response => {
+            console.log(response.status)
+            if(response.status === 200){
+                window.location.assign(`/SupplierPage.html`);
+            } else {
+                window.alert("Deze gebruiker-wachtwoord combinatie bestaat al");
+            }
+        });
 }
 
 function createKnop(){

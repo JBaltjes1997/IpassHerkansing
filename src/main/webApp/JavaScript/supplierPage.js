@@ -11,15 +11,15 @@
     // }
 // }
 
-function getStartFetch(){
-    fetch("/SupplierPage.html", {
-        message: 'GET'
-    }
-    ).then(response => {
-        response.json()
-        // .then((response) => getHulpvragen(response))
-        .then((response) => console.log(response))
-    })
-}
-
-getStartFetch();
+// function getStartFetch(){
+//     fetch("/SupplierPage.html", {
+//         message: 'GET'
+//     }
+//     ).then(response => {
+//         response.json()
+//         // .then((response) => getHulpvragen(response))
+//         .then((response) => console.log(response))
+//     })
+// }
+//
+// getStartFetch();

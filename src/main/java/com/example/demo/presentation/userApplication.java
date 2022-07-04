@@ -42,25 +42,24 @@ public class userApplication {
         }
     }
 
-
 //    @GET
 //    @Path("/{voornaam}/{wachtwoord}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public String getUserID(/*@PathParam("voornaam") String voornaam,*/
-                           String wachtwoord) throws SQLException {
-        JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
-        try{
-            databaseQuery.setDBConnection();
-            User users = databaseInfo.getUserInfo(wachtwoord);
-
-            objectBuilder.add("id", users.getId());
-
-            databaseQuery.closeDBConnection();
-            return objectBuilder.build().toString();
-        }catch(Exception e){
-            return e.getMessage();
-        }
-    }
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public String getUserID(/*@PathParam("voornaam") String voornaam,*/
+//                           String wachtwoord) throws SQLException {
+//        JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
+//        try{
+//            databaseQuery.setDBConnection();
+//            User users = databaseInfo.getUserInfo(wachtwoord);
+//
+//            objectBuilder.add("id", users.getId());
+//
+//            databaseQuery.closeDBConnection();
+//            return objectBuilder.build().toString();
+//        }catch(Exception e){
+//            return e.getMessage();
+//        }
+//    }
 
     @POST
     @Path("/{voornaam}/{achternaam}/{wachtwoord}")
@@ -90,7 +89,6 @@ public class userApplication {
         try{
             databaseQuery.setDBConnection();
             ArrayList<User> users = databaseInfo.getUsers();
-//            User user = databaseInfo.getUserInfo(voornaam, wachtwoord);
 
             for(User user : users){
                 if(user.getFirstName().equals(voornaam) && user.getPassword().equals(wachtwoord)){
@@ -104,6 +102,30 @@ public class userApplication {
             return Response.status(405).build();
         }
         return Response.status(405).build();
+    }
+
+    @PUT
+    @Path("/{current_firstname}/{new_firstname}/{achternaam}/{wachtwoord}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response updateUserProfile(@PathParam("current_firstname") String current_firstname,
+                                      @PathParam("new_firstname") String new_firstname,
+                                      @PathParam("achternaam") String achternaam,
+                                      @PathParam("wachtwoord") String wachtwoord){
+        try{
+            databaseQuery.setDBConnection();
+
+            Response response = databaseInfo.updateUserProfile(current_firstname, new_firstname, achternaam, wachtwoord );
+
+            databaseQuery.closeDBConnection();
+
+            return response;
+
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+            return Response.status(405).build();
+        }
+
     }
 
     @DELETE
